@@ -1,8 +1,8 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
-import axios from "axios";
 import schema from "../validation/IssueForm";
+import { axiosWithAuth } from '../utils/axiosWithAuth'
 
 const initialFormValues = {
   issue: "",
@@ -50,7 +50,7 @@ export default function NewIssueForm() {
   };
 
   const postFormValues = (issueInfo) => {
-    axios
+    axiosWithAuth()
       .post("/api/issues", issueInfo)
       .then((res) => {
         console.log(res);
@@ -69,12 +69,17 @@ export default function NewIssueForm() {
   const onSubmit = (evt) => {
     evt.preventDefault();
     postFormValues(formValues);
-    history.push("");
+    history.push("/issue-board");
   };
   const update = (evt) => {
     const { name, value } = evt.target;
     updateForm(name, value);
   };
+
+
+  const goBack = () => {
+    history.goBack()
+  }
 
   return (
     <div className="issueFormContainer" onSubmit={onSubmit}>
@@ -155,6 +160,7 @@ export default function NewIssueForm() {
           <div>{formErrors.zipcode}</div>
         </div>
       </form>
+      <button onClick={goBack}>Back</button>
     </div>
   );
 }
