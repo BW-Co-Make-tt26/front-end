@@ -4,6 +4,7 @@ import * as yup from "yup";
 import axios from "axios";
 import schema from "../validation/logInValidation";
 import { Link } from 'react-router-dom'
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const initialFormValues = {
   username: "",
@@ -67,23 +68,26 @@ export default function Login(props) {
   //   history.push("/");
   // };
 
+  const handleLogin = e => {
+    e.preventDefault();
+    axiosWithAuth()
+      .post("api/users/login", formValues)
+      .then(res => {
+        console.log(res)
+        props.setIsLoggedIn(true)
+        localStorage.setItem("token", res.data.token);
+        history.push("/issue-board")
+    })
+      .catch(err => {
+        console.log(err)
+    })
+  }
+
   const update = (evt) => {
     const { name, value } = evt.target;
     updateForm(name, value);
   };
 
-  const handleLogin = e => {
-    e.preventDefault();
-    axios.post("https://co-make-app-tt26.herokuapp.com/api/users/login", formValues)
-    .then(res => {
-      console.log(res)
-      localStorage.setItem("token", res.data.payload);
-      history.push("/issue-board")
-    })
-    .catch(err => {
-      console.log(err)
-    })
-  }
 
   return (
     <div className="loginContainer" onSubmit={handleLogin}>
