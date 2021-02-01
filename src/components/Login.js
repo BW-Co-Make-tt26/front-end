@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
-import axios from "axios";
 import schema from "../validation/logInValidation";
 import { Link } from 'react-router-dom'
 import { axiosWithAuth } from "../utils/axiosWithAuth";
@@ -45,28 +44,11 @@ export default function Login(props) {
     
   };
 
-  // const postFormValues = (userInfo) => {
-  //   axios
-  //     .post("https://co-make-app-tt26.herokuapp.com/api/users/login", userInfo)
-  //     .then((res) => {
-  //       console.log(res);
-  //     })
-  //     .catch((err) => {
-  //       console.log(err);
-  //     });
-  // };
-
   useEffect(() => {
     schema.isValid(formValues).then((valid) => {
       setDisabled(!valid);
     });
   }, [formValues]);
-
-  // const onSubmit = (evt) => {
-  //   evt.preventDefault();
-  //   postFormValues(formValues);
-  //   history.push("/");
-  // };
 
   const handleLogin = e => {
     e.preventDefault();
@@ -87,7 +69,6 @@ export default function Login(props) {
     const { name, value } = evt.target;
     updateForm(name, value);
   };
-
 
   return (
     <div className="loginContainer" onSubmit={handleLogin}>

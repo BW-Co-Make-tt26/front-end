@@ -1,7 +1,6 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
-import axios from "axios";
 import schema from "../validation/SignUpIn";
 import { Link} from 'react-router-dom'
 import { axiosWithAuth } from "../utils/axiosWithAuth";
