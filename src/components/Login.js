@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import axios from "axios";
 import schema from "../validation/logInValidation";
+import { Link } from 'react-router-dom'
 
 const initialFormValues = {
   username: "",
@@ -105,6 +106,9 @@ export default function Login() {
           <div>{formErrors.password}</div>
         </div>
       </form>
+      <Link to='/sign-up'>
+        <p>Create an account</p>
+      </Link>
     </div>
   );
 }
