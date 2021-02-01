@@ -45,7 +45,7 @@ export default function Login() {
 
   const postFormValues = (userInfo) => {
     axios
-      .post("/api/users/login", userInfo)
+      .post("https://co-make-app-tt26.herokuapp.com/api/users/login", userInfo)
       .then((res) => {
         console.log(res);
       })

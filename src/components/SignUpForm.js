@@ -3,6 +3,7 @@ import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import axios from "axios";
 import schema from "../validation/SignUpIn";
+import { Link} from 'react-router-dom'
 
 const initialFormValues = {
   first_name: "",
@@ -68,7 +69,7 @@ export default function SignUpForm() {
   const onSubmit = (evt) => {
     evt.preventDefault();
     postFormValues(formValues);
-    history.push("/?");
+    history.push("/");
   };
   const update = (evt) => {
     const { name, value } = evt.target;
@@ -143,6 +144,9 @@ export default function SignUpForm() {
           <div>{formErrors.password}</div>
         </div>
       </form>
+      <Link to='/'>
+        Login
+      </Link>
     </div>
   );
 }

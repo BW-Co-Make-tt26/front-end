@@ -1,7 +1,7 @@
 import NewIssueForm from "./components/NewIssueForm";
 import Login from "./components/Login";
 import SignUp from "./components/SignUpForm";
-import { Route, Link, Switch } from 'react-router-dom'
+import { Route, Switch } from 'react-router-dom'
 
 function App() {
   return (
