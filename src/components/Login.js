@@ -85,8 +85,6 @@ export default function Login(props) {
     })
   }
 
-  
-
   return (
     <div className="loginContainer" onSubmit={handleLogin}>
       <div className="headerContainer">
