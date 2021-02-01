@@ -17,7 +17,7 @@ const initialFormErrors = {
 
 const initialDisabled = true;
 
-export default function Login() {
+export default function Login(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
@@ -41,6 +41,7 @@ export default function Login() {
         });
       });
     setFormValues({ ...formValues, [name]: value });
+    
   };
 
   // const postFormValues = (userInfo) => {
@@ -54,30 +55,40 @@ export default function Login() {
   //     });
   // };
 
-  const handleLogin = e => {
-    e.preventDefault();
-    axios.post("https://co-make-app-tt26.herokuapp.com/api/users/login", )
-  }
-
   useEffect(() => {
     schema.isValid(formValues).then((valid) => {
       setDisabled(!valid);
     });
   }, [formValues]);
 
-  const onSubmit = (evt) => {
-    evt.preventDefault();
-    postFormValues(formValues);
-    history.push("/?");
-  };
+  // const onSubmit = (evt) => {
+  //   evt.preventDefault();
+  //   postFormValues(formValues);
+  //   history.push("/");
+  // };
 
   const update = (evt) => {
     const { name, value } = evt.target;
     updateForm(name, value);
   };
 
+  const handleLogin = e => {
+    e.preventDefault();
+    axios.post("https://co-make-app-tt26.herokuapp.com/api/users/login", formValues)
+    .then(res => {
+      console.log(res)
+      localStorage.setItem("token", res.data.payload);
+      history.push("/issue-board")
+    })
+    .catch(err => {
+      console.log(err)
+    })
+  }
+
+  
+
   return (
-    <div className="loginContainer" onSubmit={onSubmit}>
+    <div className="loginContainer" onSubmit={handleLogin}>
       <div className="headerContainer">
         <h3>Login Form</h3>
       </div>

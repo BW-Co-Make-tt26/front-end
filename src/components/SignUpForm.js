@@ -4,6 +4,7 @@ import * as yup from "yup";
 import axios from "axios";
 import schema from "../validation/SignUpIn";
 import { Link} from 'react-router-dom'
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const initialFormValues = {
   first_name: "",
@@ -49,9 +50,14 @@ export default function SignUpForm() {
     setFormValues({ ...formValues, [name]: value });
   };
 
+  const submitForm = () => {
+    postFormValues(formValues);
+    history.push('/')
+  }
+
   const postFormValues = (userInfo) => {
-    axios
-      .post("/api/users/register", userInfo)
+    axiosWithAuth()
+      .post("api/users/register", userInfo)
       .then((res) => {
         console.log(res);
       })
@@ -68,9 +74,10 @@ export default function SignUpForm() {
 
   const onSubmit = (evt) => {
     evt.preventDefault();
-    postFormValues(formValues);
-    history.push("/");
+    submitForm();
+    console.log(formValues)
   };
+
   const update = (evt) => {
     const { name, value } = evt.target;
     updateForm(name, value);

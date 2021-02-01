@@ -19,13 +19,14 @@ function App() {
   return (
     <div className="App">
       <h1>Co-Make</h1>
-      <Route exact path='/' render={(props) => {
-            return <Login {...props} setIsLoggedIn={setIsLoggedIn} />
-          }} />
-      <Route path='/sign-up' component={SignUp} />
-      <PrivateRoute exact path='/issue-board' component={IssueBoard} />
-      <Route path='/new-issue-form' component={NewIssueForm} />
-      
+      <Switch>
+        <Route exact path='/' render={(props) => {
+              return <Login {...props} setIsLoggedIn={setIsLoggedIn} />
+            }} />
+        <Route path='/sign-up' component={SignUp} />
+        <PrivateRoute exact path='/issue-board' component={IssueBoard} />
+        <Route path='/new-issue-form' component={NewIssueForm} />
+      </Switch>
     </div>
   );
 }
