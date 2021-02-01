@@ -1,11 +1,13 @@
 import React from 'react'
 
-function IssueBoard() {
+export default function IssueBoard(props) {
+
+
     return (
         <div>
-            
+            <button className='logout' onClick={props.logout}>Logout</button>
         </div>
     )
 }
 
-export default IssueBoard
+

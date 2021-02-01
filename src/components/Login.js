@@ -1,8 +1,9 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
-import axios from "axios";
 import schema from "../validation/logInValidation";
+import { Link } from 'react-router-dom'
+import { axiosWithAuth } from "../utils/axiosWithAuth";
 
 const initialFormValues = {
   username: "",
@@ -16,7 +17,7 @@ const initialFormErrors = {
 
 const initialDisabled = true;
 
-export default function Login() {
+export default function Login(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
@@ -40,17 +41,7 @@ export default function Login() {
         });
       });
     setFormValues({ ...formValues, [name]: value });
-  };
-
-  const postFormValues = (userInfo) => {
-    axios
-      .post("/api/users/login", userInfo)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
+    
   };
 
   useEffect(() => {
@@ -59,11 +50,20 @@ export default function Login() {
     });
   }, [formValues]);
 
-  const onSubmit = (evt) => {
-    evt.preventDefault();
-    postFormValues(formValues);
-    history.push("/?");
-  };
+  const handleLogin = e => {
+    e.preventDefault();
+    axiosWithAuth()
+      .post("api/users/login", formValues)
+      .then(res => {
+        console.log(res)
+        props.setIsLoggedIn(true)
+        localStorage.setItem("token", res.data.token);
+        history.push("/issue-board")
+    })
+      .catch(err => {
+        console.log(err)
+    })
+  }
 
   const update = (evt) => {
     const { name, value } = evt.target;
@@ -71,7 +71,7 @@ export default function Login() {
   };
 
   return (
-    <div className="loginContainer" onSubmit={onSubmit}>
+    <div className="loginContainer" onSubmit={handleLogin}>
       <div className="headerContainer">
         <h3>Login Form</h3>
       </div>
@@ -105,6 +105,9 @@ export default function Login() {
           <div>{formErrors.password}</div>
         </div>
       </form>
+      <Link to='/sign-up'>
+        <p>Create an account</p>
+      </Link>
     </div>
   );
 }
