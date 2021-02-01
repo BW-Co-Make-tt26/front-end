@@ -50,7 +50,7 @@ export default function NewIssueForm() {
   };
 
   const postFormValues = (issueInfo) => {
-    axios()
+    axios
       .post("/api/issues", issueInfo)
       .then((res) => {
         console.log(res);

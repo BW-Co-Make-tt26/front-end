@@ -2,7 +2,7 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import axios from "axios";
-import schema from "../validation/SignUpIn";
+import schema from "../validation/logInValidation";
 
 const initialFormValues = {
   username: "",
@@ -43,7 +43,7 @@ export default function Login() {
   };
 
   const postFormValues = (userInfo) => {
-    axios()
+    axios
       .post("/api/users/login", userInfo)
       .then((res) => {
         console.log(res);

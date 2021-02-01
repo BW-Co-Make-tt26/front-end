@@ -49,7 +49,7 @@ export default function SignUpForm() {
   };
 
   const postFormValues = (userInfo) => {
-    axios()
+    axios
       .post("/api/users/register", userInfo)
       .then((res) => {
         console.log(res);

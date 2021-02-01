@@ -6,8 +6,9 @@ function App() {
   return (
     <div className="App">
       <h1>Co-Make</h1>
-      
-      <SignUp></SignUp>
+      <Login />
+      <SignUp />
+      <NewIssueForm />
     </div>
   );
 }
