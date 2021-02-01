@@ -1,6 +1,6 @@
 import React from 'react'
 
-function IssueBoard() {
+export default function IssueBoard() {
     return (
         <div>
             
@@ -8,4 +8,4 @@ function IssueBoard() {
     )
 }
 
-export default IssueBoard
+

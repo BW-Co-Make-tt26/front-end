@@ -43,16 +43,21 @@ export default function Login() {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const postFormValues = (userInfo) => {
-    axios
-      .post("https://co-make-app-tt26.herokuapp.com/api/users/login", userInfo)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
+  // const postFormValues = (userInfo) => {
+  //   axios
+  //     .post("https://co-make-app-tt26.herokuapp.com/api/users/login", userInfo)
+  //     .then((res) => {
+  //       console.log(res);
+  //     })
+  //     .catch((err) => {
+  //       console.log(err);
+  //     });
+  // };
+
+  const handleLogin = e => {
+    e.preventDefault();
+    axios.post("https://co-make-app-tt26.herokuapp.com/api/users/login", )
+  }
 
   useEffect(() => {
     schema.isValid(formValues).then((valid) => {
