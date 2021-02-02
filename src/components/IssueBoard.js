@@ -17,13 +17,13 @@ export default function IssueBoard(props) {
 
     return (
         <>
-            <div>
+            <div className='btn-ctn'>
                 <Link to='/new-issue-form'>
                 <button className='addIssue-btn'>Add Issue</button>
                 </Link> 
                 <button className='logout' onClick={props.logout}>Logout</button>
             </div>
-            <div>
+            <div className='issues-container'>
                 {issues.map((item, index) => {
                     return <IssueCard key={index} issue={item}/>
                 })}
