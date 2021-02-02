@@ -1,6 +1,6 @@
 import React, {useState, useEffect} from 'react'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
-import IssueCard from './IssueCard'
+import MyIssuesCard from './MyIssuesCard'
 
 export default function MyIssues(props) {
 
@@ -28,7 +28,7 @@ export default function MyIssues(props) {
         <h2>My Issues</h2>
             <div className='issues-container'>
                 {myIssuesArr.map((item, index) => {
-                    return <IssueCard key={index} issue={item}/>
+                    return <MyIssuesCard key={index} issue={item}/>
                 })}
             </div>
         </>
