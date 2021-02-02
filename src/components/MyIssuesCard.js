@@ -13,6 +13,7 @@ export default function MyIssuesCard(props) {
             setMyIssues(myIssues.filter(issue => {
                 return issue.id !== res.data
             }))
+            window.location.reload()
             console.log(res.data)
         })
         .catch(err => {
