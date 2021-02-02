@@ -1,4 +1,5 @@
 import React from 'react'
+import './IssueBoard.css'
 
 export default function IssueCard(props) {
 
@@ -9,12 +10,14 @@ export default function IssueCard(props) {
             <div className='issue-title'>
                 <h1>{issue.issue}</h1>
             </div>
-            <div className='issue-description'>
-                <p>{issue.description}</p>
+            <div className='card-body'>
+                <div className='issue-description'>
+                    <p>{issue.description}</p>
+                </div>
+                {issue.image ? <div className='issue-img-ctn'>
+                    <img src={issue.image} alt='issue-img' />
+                </div> : null}
             </div>
-            {issue.image ? <div className='issue-img-ctn'>
-                <img src={issue.image} alt='issue-img' />
-            </div> : null}
         </div>
     )
 }

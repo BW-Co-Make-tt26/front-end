@@ -5,6 +5,7 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import React, {useState} from 'react'
 import IssueBoard  from "./components/IssueBoard";
 import PrivateRoute from './components/PrivateRoute'
+import './App.css'
 
 
 function App() {
