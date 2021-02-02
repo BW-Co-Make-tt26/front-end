@@ -74,7 +74,7 @@ export default function Login(props) {
   return (
     <div className="loginContainer" onSubmit={handleLogin}>
       <div className="headerContainer">
-        <h3>Login Form</h3>
+        <h3>Login</h3>
       </div>
       <form className="formContainer">
         <div className="inputContainer">

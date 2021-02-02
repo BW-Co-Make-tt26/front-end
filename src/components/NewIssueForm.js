@@ -87,6 +87,7 @@ export default function NewIssueForm(props) {
       console.log(err)
     })
     history.push('/issue-board')
+    window.location.reload()
     console.log(newIssue)
   }
 
