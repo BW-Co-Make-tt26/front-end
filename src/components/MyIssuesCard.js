@@ -1,7 +1,7 @@
 import React from 'react'
 import './IssueBoard.css'
 
-export default function IssueCard(props) {
+export default function MyIssuesCard(props) {
 
     const {issue} = props
 
