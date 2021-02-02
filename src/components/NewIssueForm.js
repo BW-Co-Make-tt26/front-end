@@ -1,6 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
+import axios from 'axios'
 import schema from "../validation/IssueForm";
 import { axiosWithAuth } from '../utils/axiosWithAuth'
 
@@ -28,6 +29,8 @@ export default function NewIssueForm() {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
 
+  const [issues, setIssues] = useState([])
+
   const history = useHistory();
 
   const updateForm = (name, value) => {
@@ -49,16 +52,6 @@ export default function NewIssueForm() {
     setFormValues({ ...formValues, [name]: value });
   };
 
-  const postFormValues = (issueInfo) => {
-    axiosWithAuth()
-      .post("/api/issues", issueInfo)
-      .then((res) => {
-        console.log(res);
-      })
-      .catch((err) => {
-        console.log(err);
-      });
-  };
 
   useEffect(() => {
     schema.isValid(formValues).then((valid) => {
@@ -66,27 +59,44 @@ export default function NewIssueForm() {
     });
   }, [formValues]);
 
-  const onSubmit = (evt) => {
-    evt.preventDefault();
-    postFormValues(formValues);
-    history.push("/issue-board");
-  };
+
   const update = (evt) => {
     const { name, value } = evt.target;
     updateForm(name, value);
   };
 
 
+  const addIssue = () => {
+    const newIssue = {
+      issue: formValues.issue,
+      description: formValues.description,
+      image: formValues.image,
+      city: formValues.city,
+      state: formValues.state,
+      zipcode: formValues.zipcode,
+    }
+    
+    axiosWithAuth()
+    .post('/api/issues', newIssue)
+    .then(res => {
+      console.log(res)
+    })
+    .catch(err => {
+      console.log(err)
+    })
+    history.push('/issue-board')
+  }
+
   const goBack = () => {
     history.goBack()
   }
-
+  console.log(formValues)
   return (
-    <div className="issueFormContainer" onSubmit={onSubmit}>
+      <>
       <div className="headerContainer">
         <h3>Issue Form</h3>
       </div>
-      <form className="formContainer">
+      <form className="formContainer" onSubmit={addIssue}>
         <div className="inputContainer">
           <label>
             Issue
@@ -161,6 +171,6 @@ export default function NewIssueForm() {
         </div>
       </form>
       <button onClick={goBack}>Back</button>
-    </div>
+    </>
   );
 }
