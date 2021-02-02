@@ -12,9 +12,9 @@ export default function IssueCard(props) {
             <div className='issue-description'>
                 <p>{issue.description}</p>
             </div>
-            <div className='issue-img-ctn'>
+            {issue.image ? <div className='issue-img-ctn'>
                 <img src={issue.image} alt='issue-img' />
-            </div>
+            </div> : null}
         </div>
     )
 }
