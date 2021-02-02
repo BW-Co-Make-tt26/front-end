@@ -28,7 +28,7 @@ export default function MyIssues(props) {
         <h2>My Issues</h2>
             <div className='issues-container'>
                 {myIssuesArr.map((item, index) => {
-                    return <MyIssuesCard key={index} issue={item}/>
+                    return <MyIssuesCard key={index} issue={item} myIssues={myIssuesArr} setMyIssues={setMyIssues}/>
                 })}
             </div>
         </>

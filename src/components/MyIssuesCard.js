@@ -1,9 +1,24 @@
 import React from 'react'
+import {axiosWithAuth} from '../utils/axiosWithAuth'
 import './IssueBoard.css'
 
 export default function MyIssuesCard(props) {
 
-    const {issue} = props
+    const {issue, myIssues, setMyIssues} = props
+
+    const deleteIssue = issue => {
+        axiosWithAuth()
+        .delete(`/api/issues/${issue.id}`)
+        .then( res => {
+            setMyIssues(myIssues.filter(issue => {
+                return issue.id !== res.data
+            }))
+            console.log(res.data)
+        })
+        .catch(err => {
+            console.log(err.data)
+        })
+    }
 
     return (
         <div className='issue-card'>
@@ -19,7 +34,10 @@ export default function MyIssuesCard(props) {
                 </div> : null}
             </div>
             <button id='edit-issue-btn'>Edit</button>
-            <button id='delete-issue-btn'>Delete</button>
+            <button id='delete-issue-btn' onClick={e => {
+                e.stopPropagation();
+                deleteIssue(issue)
+            }}>Delete</button>
         </div>
     )
 }
