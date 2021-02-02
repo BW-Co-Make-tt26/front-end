@@ -1,4 +1,4 @@
-import React, { useEffect, useState } from "react";
+import React, { useEffect, useState, useRef } from "react";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import schema from "../validation/IssueForm";
@@ -28,7 +28,8 @@ export default function NewIssueForm(props) {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
 
-  const [issues, setIssues] = useState([])
+  const [loading, setLoading] = useState(false)
+  
 
   const history = useHistory();
 
@@ -49,6 +50,7 @@ export default function NewIssueForm(props) {
         });
       });
     setFormValues({ ...formValues, [name]: value });
+    
   };
 
 
@@ -62,8 +64,30 @@ export default function NewIssueForm(props) {
   const update = (evt) => {
     const { name, value } = evt.target;
     updateForm(name, value);
+    console.log(formValues)
   };
 
+  // Image upload functionaliy
+
+const uploadImage = async e => {
+  const files = e.target.files
+  const data = new FormData()
+  data.append('file', files[0])
+  data.append('upload_preset', 'co-work')
+
+  setLoading(true);
+  const res = await fetch("	https://api.cloudinary.com/v1_1/dyp2opcpj/image/upload", 
+  {
+    method: 'POST',
+    body: data
+  })
+
+  const file = await res.json()
+  formValues.image = file.url
+  console.log(formValues)
+}
+
+//
 
   const addIssue = () => {
     const user = JSON.parse(localStorage.getItem('user'))
@@ -121,16 +145,16 @@ export default function NewIssueForm(props) {
               />
             </label>
             <br />
-            <label>
-              Image
+            <label>Image</label>
               <input
-                name="image"
+                name="file" //changed from image to file
                 type="file"
-                //   not sure if correct type
-                value={formValues.image}
-                onChange={update}
+                accept='image/*'
+                
+                //value={formValues.image}
+                onChange={uploadImage}
               />
-            </label>
+            
             <br />
             <label>
               City
