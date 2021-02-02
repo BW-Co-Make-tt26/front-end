@@ -58,6 +58,7 @@ export default function Login(props) {
         console.log(res)
         props.setIsLoggedIn(true)
         localStorage.setItem("token", res.data.token);
+        localStorage.setItem("user", JSON.stringify(res.data.data))
         history.push("/issue-board")
     })
       .catch(err => {
