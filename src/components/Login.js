@@ -79,22 +79,24 @@ export default function Login(props) {
       <form className="formContainer">
         <div className="inputContainer">
           <label>
-            Username
+            
             <input
               name="username"
               type="text"
               value={formValues.username}
               onChange={update}
+              placeholder='Username'
             />
           </label>
           <br />
           <label>
-            Password
+            
             <input
               name="password"
               type="password"
               value={formValues.password}
               onChange={update}
+              placeholder='Password'
             />
           </label>
         </div>

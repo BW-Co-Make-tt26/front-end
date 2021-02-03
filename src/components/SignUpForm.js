@@ -90,52 +90,57 @@ export default function SignUpForm() {
       <form className="formContainer">
         <div className="inputContainer">
           <label>
-            First Name
+            
             <input
               name="first_name"
               type="text"
               value={formValues.first_name}
               onChange={update}
+              placeholder='First Name'
             />
           </label>
           <br />
           <label>
-            Last Name
+            
             <input
               name="last_name"
               type="text"
               value={formValues.last_name}
               onChange={update}
+              placeholder='Last Name'
             />
           </label>
           <br />
           <label>
-            Username
+            
             <input
               name="username"
               type="text"
               value={formValues.username}
               onChange={update}
+              placeholder='Username'
             />
           </label>
           <br />
           <label>
-            Email
+            
             <input
               name="email"
               type="email"
               value={formValues.email}
               onChange={update}
+              placeholder='Email'
             />
           </label>
           <br />
           <label>
-            Password
+            
             <input
               name="password"
               type="password"
               value={formValues.password}
               onChange={update}
+              placeholder='Password'
             />
           </label>
         </div>
