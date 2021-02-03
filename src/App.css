@@ -3,3 +3,24 @@
     margin: auto;
     text-align: center;
   }
+
+  .upvote-ctn button {
+    display: contents;
+    cursor: pointer;
+  }
+
+  .issue-title {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+  }
+
+  .counter {
+    margin-right: 10px;
+    
+  }
+
+  .btn-ctn {
+    display: flex;
+    justify-content: space-between;
+  }
