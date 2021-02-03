@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import * as yup from "yup";
 import schema from "../validation/IssueForm";
-import {axiosWithAuth} from '../utils/axiosWithAuth'
+import {axiosWithAuth} from '../utils/axiosWithAuth';
+import styled from "styled-components";
 
 //make a use effect that sets the initial form values to the issue you clicked edit on
 //using useParams somehow. It'll work! Probably! That way you can just edit what was
@@ -120,7 +121,7 @@ const submit = (e) => {
   addIssue()
 }
   return (
-      <>
+      <Container>
         <div className="headerContainer">
           <h3>Issue Form</h3>
         </div>
@@ -205,6 +206,12 @@ const submit = (e) => {
           </div>
         </form>
         <button onClick={goBack}>Back</button>
-    </>
+    </Container>
   );
 }
+
+const Container = styled.div `
+  width: 30%;
+  margin: auto; 
+  text-align: center;
+`

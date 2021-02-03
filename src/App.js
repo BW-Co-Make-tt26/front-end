@@ -5,8 +5,9 @@ import { BrowserRouter as Router, Route, Switch } from 'react-router-dom'
 import React, {useState} from 'react'
 import IssueBoard  from "./components/IssueBoard";
 import PrivateRoute from './components/PrivateRoute';
-import MyIssues from './components/MyIssues'
-import EditForm from './components/EditForm'
+import MyIssues from './components/MyIssues';
+import EditForm from './components/EditForm';
+import styled from "styled-components";
 import './App.css'
 
 
@@ -24,7 +25,7 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <h1>Co-Make</h1>
+        <CoMakeH1>Co-Make</CoMakeH1>
         <Switch>
           <Route exact path='/' render={(props) => {
                 return <Login {...props} setIsLoggedIn={setIsLoggedIn} />
@@ -41,3 +42,7 @@ function App() {
 }
 
 export default App;
+
+const CoMakeH1 = styled.h1 `
+  margin-left: 1%;
+`

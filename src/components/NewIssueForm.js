@@ -2,7 +2,8 @@ import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import schema from "../validation/IssueForm";
-import { axiosWithAuth } from '../utils/axiosWithAuth'
+import { axiosWithAuth } from '../utils/axiosWithAuth';
+import styled from "styled-components";
 
 const initialFormValues = {
   issue: "",
@@ -120,9 +121,9 @@ const uploadImage = async e => {
   }
 
   return (
-      <>
+      <Container>
         <div className="headerContainer">
-          <h3>Issue Form</h3>
+          <h3>Create a New Issue</h3>
         </div>
         <form className="formContainer" onSubmit={addIssue}>
           <div className="inputContainer">
@@ -205,6 +206,12 @@ const uploadImage = async e => {
           </div>
         </form>
         <button onClick={goBack}>Back</button>
-    </>
+      </Container>
   );
 }
+
+const Container = styled.div `
+  width: 30%;
+  margin: auto; 
+  text-align: center;
+`

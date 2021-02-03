@@ -4,6 +4,8 @@ import * as yup from "yup";
 import schema from "../validation/logInValidation";
 import { Link } from 'react-router-dom'
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import styled from "styled-components";
+
 
 const initialFormValues = {
   username: "",
@@ -72,7 +74,7 @@ export default function Login(props) {
   };
 
   return (
-    <div className="loginContainer" onSubmit={handleLogin}>
+    <Container className="loginContainer" onSubmit={handleLogin}>
       <div className="headerContainer">
         <h3>Login</h3>
       </div>
@@ -111,6 +113,12 @@ export default function Login(props) {
       <Link to='/sign-up'>
         <p>Create an account</p>
       </Link>
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div `
+  width: 30%;
+  margin: auto; 
+  text-align: center;
+`
