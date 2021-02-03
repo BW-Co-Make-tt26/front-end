@@ -1,11 +1,17 @@
 import React, { useEffect, useState } from "react";
-import { useHistory } from "react-router-dom";
+import { useHistory, useParams } from "react-router-dom";
 import * as yup from "yup";
 import schema from "../validation/IssueForm";
-import { axiosWithAuth } from '../utils/axiosWithAuth'
+import {axiosWithAuth} from '../utils/axiosWithAuth'
+
+//make a use effect that sets the initial form values to the issue you clicked edit on
+//using useParams somehow. It'll work! Probably! That way you can just edit what was
+//there before and it is 'put' into the api to be rendered out as what it was!
+
+
 
 const initialFormValues = {
-  issue: "",
+  issue: '',
   description: "",
   image: "",
   city: "",
@@ -13,48 +19,62 @@ const initialFormValues = {
   zipcode: "",
 };
 
+
+
 const initialFormErrors = {
-  issue: "",
-  description: "",
-  city: "",
-  state: "",
-  zipcode: "",
+    issue: "",
+    description: "",
+    city: "",
+    state: "",
+    zipcode: "",
 };
 
 const initialDisabled = true;
 
-export default function NewIssueForm(props) {
-  const [formValues, setFormValues] = useState(initialFormValues);
-  const [formErrors, setFormErrors] = useState(initialFormErrors);
-  const [disabled, setDisabled] = useState(initialDisabled);
+export default function EditForm(props) {
+    const [formValues, setFormValues] = useState(initialFormValues);
+    const [formErrors, setFormErrors] = useState(initialFormErrors);
+    const [disabled, setDisabled] = useState(initialDisabled);
+    
+    const history = useHistory();
+    const {id} = useParams();
+    
+    useEffect(() => {
+        axiosWithAuth()
+        .get(`/api/issues/${id}`)
+        .then(res => {
+            console.log(res)
+            setFormValues(res.data)
+        })
+        .catch(err => {
+            console.log(err)
+        })
+    }, [])
 
-  const [issues, setIssues] = useState([])
-
-  const history = useHistory();
 
   const updateForm = (name, value) => {
     yup
-      .reach(schema, name)
-      .validate(value)
+    .reach(schema, name)
+    .validate(value)
       .then(() => {
-        setFormErrors({
-          ...formErrors,
+          setFormErrors({
+              ...formErrors,
           [name]: "",
         });
       })
       .catch((err) => {
-        setFormErrors({
+          setFormErrors({
           ...formErrors,
           [name]: err.errors[0],
         });
-      });
+    });
     setFormValues({ ...formValues, [name]: value });
-  };
+};
 
 
-  useEffect(() => {
+useEffect(() => {
     schema.isValid(formValues).then((valid) => {
-      setDisabled(!valid);
+        setDisabled(!valid);
     });
   }, [formValues]);
 
@@ -77,30 +97,32 @@ export default function NewIssueForm(props) {
       zipcode: formValues.zipcode,
       user_id: user.user_id
     }
-
-    axiosWithAuth()
-    .post('/api/issues', newIssue)
-    .then(res => {
-      console.log(res)
-      history.push('/issue-board')
-    })
-    .catch(err => {
-      console.log(err)
-    })
-    // window.location.reload()
+  
     console.log(newIssue)
-  }
+    axiosWithAuth()
+    .put(`/api/issues/${id}`, newIssue)
+    .then(res => {
+     
+        history.push('/issue-board')
+        // window.location.reload()
+      })
+    .catch(err => {
 
+    })
+};
   const goBack = () => {
     history.goBack()
   }
-
+const submit = (e) => {
+  e.preventDefault();
+  addIssue()
+}
   return (
       <>
         <div className="headerContainer">
           <h3>Issue Form</h3>
         </div>
-        <form className="formContainer" onSubmit={addIssue}>
+        <form className="formContainer" onSubmit={submit}>
           <div className="inputContainer">
             <label>
               Issue
@@ -109,6 +131,7 @@ export default function NewIssueForm(props) {
                 type="text"
                 value={formValues.issue}
                 onChange={update}
+                
               />
             </label>
             <br />

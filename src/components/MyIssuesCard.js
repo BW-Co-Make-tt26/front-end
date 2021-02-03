@@ -1,10 +1,12 @@
 import React from 'react'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 import './IssueBoard.css'
+import {useHistory, Link} from 'react-router-dom'
 
 export default function MyIssuesCard(props) {
 
     const {issue, myIssues, setMyIssues} = props
+    const { push } = useHistory();
 
     const deleteIssue = issue => {
         axiosWithAuth()
@@ -34,7 +36,9 @@ export default function MyIssuesCard(props) {
                     <img src={issue.image} alt='issue-img' />
                 </div> : null}
             </div>
-            <button id='edit-issue-btn'>Edit</button>
+    
+            <button id='edit-issue-btn' onClick={push(`/edit-form/${issue.id}`)}>Edit</button>
+            
             <button id='delete-issue-btn' onClick={e => {
                 e.stopPropagation();
                 deleteIssue(issue)

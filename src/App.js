@@ -6,6 +6,7 @@ import React, {useState} from 'react'
 import IssueBoard  from "./components/IssueBoard";
 import PrivateRoute from './components/PrivateRoute';
 import MyIssues from './components/MyIssues'
+import EditForm from './components/EditForm'
 import './App.css'
 
 
@@ -32,6 +33,7 @@ function App() {
           <PrivateRoute exact path='/issue-board' component={IssueBoard} logout={logout} />
           <PrivateRoute path='/new-issue-form' component={NewIssueForm} />
           <PrivateRoute path='/my-issues' component={MyIssues} />
+          <PrivateRoute exact path='/edit-form/:id' component={EditForm}/>
         </Switch>
       </div>
     </Router>
