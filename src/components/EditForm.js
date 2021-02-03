@@ -13,7 +13,7 @@ import {axiosWithAuth} from '../utils/axiosWithAuth'
 const initialFormValues = {
   issue: '',
   description: "",
-  image: "",
+  // image: "",
   city: "",
   state: "",
   zipcode: "",
@@ -44,6 +44,8 @@ export default function EditForm(props) {
         .get(`/api/issues/${id}`)
         .then(res => {
             console.log(res)
+            res.data.image = '';
+            console.log(res.data)
             setFormValues(res.data)
         })
         .catch(err => {
