@@ -15,7 +15,7 @@ export default function MyIssues(props) {
 
     useEffect(() => {                                        // get data issues array
         axiosWithAuth()
-        .get(`/api/issues/`)
+        .get(`/api/issues`)
         .then(res => {
             setMyIssues(res.data)
         })

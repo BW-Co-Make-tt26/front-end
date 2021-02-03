@@ -36,9 +36,10 @@ export default function MyIssuesCard(props) {
                     <img src={issue.image} alt='issue-img' />
                 </div> : null}
             </div>
-    
-            <button id='edit-issue-btn' onClick={push(`/edit-form/${issue.id}`)}>Edit</button>
-            
+
+            <Link to={`/edit-form/${issue.id}`}>
+            <button id='edit-issue-btn'>Edit</button>
+            </Link>
             <button id='delete-issue-btn' onClick={e => {
                 e.stopPropagation();
                 deleteIssue(issue)

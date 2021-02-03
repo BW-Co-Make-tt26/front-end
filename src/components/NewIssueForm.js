@@ -1,4 +1,4 @@
-import React, { useEffect, useState, useRef } from "react";
+import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
 import schema from "../validation/IssueForm";
@@ -106,12 +106,12 @@ const uploadImage = async e => {
     .post('/api/issues', newIssue)
     .then(res => {
       console.log(res)
-      history.push('/issue-board')
     })
     .catch(err => {
       console.log(err)
     })
-    // window.location.reload()
+    history.push('/issue-board')
+    window.location.reload()
     console.log(newIssue)
   }
 

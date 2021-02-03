@@ -33,7 +33,7 @@ function App() {
           <PrivateRoute exact path='/issue-board' component={IssueBoard} logout={logout} />
           <PrivateRoute path='/new-issue-form' component={NewIssueForm} />
           <PrivateRoute path='/my-issues' component={MyIssues} />
-          <PrivateRoute exact path='/edit-form/:id' component={EditForm}/>
+          <PrivateRoute path='/edit-form/:id' component={EditForm} />
         </Switch>
       </div>
     </Router>
