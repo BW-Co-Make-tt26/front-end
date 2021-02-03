@@ -4,6 +4,7 @@ import * as yup from "yup";
 import schema from "../validation/SignUpIn";
 import { Link} from 'react-router-dom'
 import { axiosWithAuth } from "../utils/axiosWithAuth";
+import styled from "styled-components";
 
 const initialFormValues = {
   first_name: "",
@@ -83,9 +84,9 @@ export default function SignUpForm() {
   };
 
   return (
-    <div className="signUpContainer" onSubmit={onSubmit}>
+    <Container className="signUpContainer" onSubmit={onSubmit}>
       <div className="headerContainer">
-        <h3>Sign Up Form</h3>
+        <h3>Sign Up</h3>
       </div>
       <form className="formContainer">
         <div className="inputContainer">
@@ -158,6 +159,13 @@ export default function SignUpForm() {
       <Link to='/'>
         Login
       </Link>
-    </div>
+    </Container>
   );
 }
+
+const Container = styled.div `
+  width: 30%;
+  margin: auto; 
+  text-align: center;
+`
+
