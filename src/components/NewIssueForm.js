@@ -148,16 +148,18 @@ const uploadImage = async e => {
               />
             </label>
             <br />
-            <label>Image</label>
-              <input
-                name="file" //changed from image to file
-                type="file"
-                accept='image/*'
-                
-                //value={formValues.image}
-                onChange={uploadImage}
-              />
-            
+            <label>Image
+              <ImageInput>
+                  <input
+                    name="file" //changed from image to file
+                    type="file"
+                    accept='image/*'
+                    
+                    //value={formValues.image}
+                    onChange={uploadImage}
+                  />
+              </ImageInput>
+            </label>
             <br />
             <label>
 
@@ -214,4 +216,8 @@ const Container = styled.div `
   width: 30%;
   margin: auto; 
   text-align: center;
+`
+const ImageInput = styled.div `
+  background-color: #2A2F4A;
+  padding: 10px;
 `
