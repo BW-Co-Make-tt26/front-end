@@ -1,12 +1,11 @@
 import React from 'react'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 import './IssueBoard.css'
-import {useHistory, Link} from 'react-router-dom'
+import { Link } from 'react-router-dom'
 
 export default function MyIssuesCard(props) {
 
     const {issue, myIssues, setMyIssues} = props
-    const { push } = useHistory();
 
     const deleteIssue = issue => {
         axiosWithAuth()
