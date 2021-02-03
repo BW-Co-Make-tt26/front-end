@@ -127,22 +127,23 @@ const submit = (e) => {
         <form className="formContainer" onSubmit={submit}>
           <div className="inputContainer">
             <label>
-              Issue
+              
               <input
                 name="issue"
                 type="text"
                 value={formValues.issue}
                 onChange={update}
-                
+                placeholder='Issue'
               />
             </label>
             <br />
             <label>
-              Description
+              
               <textarea
                 name="description"
                 value={formValues.description}
                 onChange={update}
+                placeholder='Description'
               />
             </label>
             <br />
@@ -158,33 +159,37 @@ const submit = (e) => {
             </label>
             <br />
             <label>
-              City
+              
               <input
                 name="city"
                 type="text"
                 value={formValues.city}
                 onChange={update}
+                placeholder='City'
               />
             </label>
+            <br />
             <label>
-              State
+              
               <input
                 name="state"
                 type="text"
                 maxLength={2}
                 value={formValues.state}
                 onChange={update}
+                placeholder='State'
               />
             </label>
             <br />
             <label>
-              Zipcode
+              
               <input
                 name="zipcode"
                 type="text"
                 maxLength={5}
                 value={formValues.zipcode}
                 onChange={update}
+                placeholder='Zipcode'
               />
             </label>
           </div>
