@@ -44,7 +44,7 @@ export default function EditForm(props) {
         .get(`/api/issues/${id}`)
         .then(res => {
             console.log(res)
-            res.data.image = '';
+            res.data.image = '';            // image file has to be empty string in order for it to render
             console.log(res.data)
             setFormValues(res.data)
         })
