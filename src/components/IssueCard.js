@@ -17,6 +17,8 @@ export default function IssueCard(props) {
             <CardBody className='card-body'>
                 <Description className='issue-description'>
                     <p>{issue.description}</p>
+                    <span>{issue.city}, {issue.state}</span><br/>
+                    <span>{issue.zipcode}</span>
                 </Description>
                 
                 {issue.image ? <IssueImg className='issue-img-ctn'>

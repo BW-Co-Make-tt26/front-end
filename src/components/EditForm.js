@@ -36,7 +36,7 @@ export default function EditForm(props) {
     const [formValues, setFormValues] = useState(initialFormValues);
     const [formErrors, setFormErrors] = useState(initialFormErrors);
     const [disabled, setDisabled] = useState(initialDisabled);
-    
+    const [loading, setLoading] = useState(false)
     const history = useHistory();
     const {id} = useParams();
     
@@ -86,6 +86,27 @@ useEffect(() => {
     const { name, value } = evt.target;
     updateForm(name, value);
   };
+
+  // Image upload functionaliy
+
+  const uploadImage = async e => {
+    const files = e.target.files
+    const data = new FormData()
+    data.append('file', files[0])
+    data.append('upload_preset', 'co-work')
+
+    setLoading(true);
+    const res = await fetch("	https://api.cloudinary.com/v1_1/dyp2opcpj/image/upload", 
+    {
+      method: 'POST',
+      body: data
+    })
+
+    const file = await res.json()
+    formValues.image = file.url
+    console.log(formValues)
+  }
+//
 
 
   const addIssue = () => {
@@ -151,11 +172,11 @@ const submit = (e) => {
             <label>
               Image
               <input
-                name="image"
+                name="file"
                 type="file"
                 //   not sure if correct type
                 value={formValues.image}
-                onChange={update}
+                onChange={uploadImage}
               />
             </label>
             <br />
