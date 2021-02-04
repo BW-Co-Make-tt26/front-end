@@ -3958,3 +3958,10 @@ input, select, textarea {
     justify-content: center;
     margin: 80px;
 }
+
+
+
+#upvote-svg {
+	max-width: 50px;
+    max-height: 50px;
+}
