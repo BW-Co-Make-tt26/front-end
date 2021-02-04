@@ -7,6 +7,7 @@ import { axiosWithAuth } from "../utils/axiosWithAuth";
 import styled from "styled-components";
 
 
+
 const initialFormValues = {
   username: "",
   password: "",
@@ -76,7 +77,7 @@ export default function Login(props) {
   return (
     <Container className="loginContainer" onSubmit={handleLogin}>
       <div className="headerContainer">
-        <h3>Login</h3>
+        
       </div>
       <form className="formContainer">
         <div className="inputContainer">

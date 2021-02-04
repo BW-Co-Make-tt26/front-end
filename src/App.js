@@ -8,6 +8,7 @@ import PrivateRoute from './components/PrivateRoute';
 import MyIssues from './components/MyIssues';
 import EditForm from './components/EditForm';
 import styled from "styled-components";
+import loginlogo from './images/loginlogo.png'
 import './App.css'
 
 
@@ -25,7 +26,9 @@ function App() {
   return (
     <Router>
       <div className="App">
-        <CoMakeH1>Co-Make</CoMakeH1>
+        <div className='logo-container'>
+          <img src={loginlogo} alt='logo'></img>
+        </div>
         <Switch>
           <Route exact path='/' render={(props) => {
                 return <Login {...props} setIsLoggedIn={setIsLoggedIn} />
