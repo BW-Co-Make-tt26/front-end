@@ -3,15 +3,19 @@ import './IssueBoard.css'
 import UpVote from './UpVote'
 import styled from "styled-components"
 
+
 export default function IssueCard(props) {
 
     const {issue} = props
+
+    // console.log(issue.id)
+    console.log(issue.upvotes)
 
     return (
         <Card className='issue-card'>
             <Title className='issue-title'>
                 <h1>{issue.issue}</h1>
-                <UpVote />
+                <UpVote issue={issue}/>
             </Title>
             <CardBody className='card-body'>
                 <Description className='issue-description'>
