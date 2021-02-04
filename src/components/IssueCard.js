@@ -6,13 +6,13 @@ import styled from "styled-components"
 
 export default function IssueCard(props) {
 
-    const {issue} = props
-    
+    const {issue, disabled, setDisabled} = props
+
     return (
         <Card className='issue-card'>
             <Title className='issue-title'>
                 <h1>{issue.issue}</h1>
-                <UpVote issue={issue}/>
+                <UpVote issue={issue} disabled={disabled} setDisabled={setDisabled}/>
             </Title>
             <CardBody className='card-body'>
                 <Description className='issue-description'>
