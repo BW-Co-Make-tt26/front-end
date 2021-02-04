@@ -29,7 +29,7 @@ export default function NewIssueForm(props) {
   const [formErrors, setFormErrors] = useState(initialFormErrors);
   const [disabled, setDisabled] = useState(initialDisabled);
 
-  const [loading, setLoading] = useState(false)
+  const [ , setLoading] = useState(false)
   
 
   const history = useHistory();
