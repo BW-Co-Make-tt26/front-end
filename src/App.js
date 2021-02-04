@@ -7,14 +7,13 @@ import IssueBoard  from "./components/IssueBoard";
 import PrivateRoute from './components/PrivateRoute';
 import MyIssues from './components/MyIssues';
 import EditForm from './components/EditForm';
-import styled from "styled-components";
 import loginlogo from './images/loginlogo.png'
 import './App.css'
 
 
 function App() {
 
-  const [isLoggedIn, setIsLoggedIn] = useState(false)
+  const [ , setIsLoggedIn] = useState(false)
 
   const logout = () => {
     localStorage.removeItem('token');
@@ -45,9 +44,3 @@ function App() {
 }
 
 export default App;
-
-const CoMakeH1 = styled.h1 `
-  margin-left: 1%;
-  display: flex;
-  justify-content: center;
-`

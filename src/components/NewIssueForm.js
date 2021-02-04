@@ -51,7 +51,6 @@ export default function NewIssueForm(props) {
         });
       });
     setFormValues({ ...formValues, [name]: value });
-    
   };
 
 
