@@ -6,7 +6,6 @@ import { axiosWithAuth } from '../utils/axiosWithAuth';
 export default function UpVote({issue}) {
 
     const handleUpvote = () => {
-        const user = JSON.parse(localStorage.getItem('user'))
     
         const addVote = {
           upvotes: issue.upvotes + 1
@@ -16,10 +15,8 @@ export default function UpVote({issue}) {
         axiosWithAuth()
         .put(`/api/issues/${issue.id}/upvotes`, addVote)
         .then(res => {
-         
            // history.push('/issue-board')
            window.location.reload()
-           
           })
         .catch(err => {
             console.log(err)

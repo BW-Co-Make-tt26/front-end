@@ -110,7 +110,7 @@ useEffect(() => {
         // window.location.reload()
       })
     .catch(err => {
-
+      console.log(err)
     })
 };
   const goBack = () => {

@@ -7,10 +7,7 @@ import styled from "styled-components"
 export default function IssueCard(props) {
 
     const {issue} = props
-
-    // console.log(issue.id)
-    console.log(issue.upvotes)
-
+    
     return (
         <Card className='issue-card'>
             <Title className='issue-title'>
