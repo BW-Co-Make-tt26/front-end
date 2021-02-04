@@ -45,4 +45,6 @@ export default App;
 
 const CoMakeH1 = styled.h1 `
   margin-left: 1%;
+  display: flex;
+  justify-content: center;
 `
