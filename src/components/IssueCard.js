@@ -34,7 +34,8 @@ const Card = styled.div `
     margin-bottom: 20px;
     text-align: left;
     padding-bottom: 10px;
-    background: slategrey
+    background: slategrey;
+    box-shadow: 4px 4px 4px rgba(0, 0, 0, 0.25);
 `
 
 const CardBody = styled.div `
