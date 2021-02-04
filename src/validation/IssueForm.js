@@ -9,6 +9,6 @@ export default yup.object().shape({
   zipcode: yup
     .string()
     .required("Zipcode is required")
-    .min(5, "Zipcode must 5 digit number")
-    .matches(/^\d+$/, "Zip must 5 digit number"),
+    .min(5, "Zipcode must be a 5 digit number")
+    .matches(/^\d+$/, "Zipcode must be a 5 digit number"),
 });
