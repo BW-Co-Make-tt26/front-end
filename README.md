@@ -6,7 +6,7 @@
 
 Backend can be found here: https://github.com/BW-Co-Make-tt26/back-end
 
-API Doc's: https://documenter.getpostman.com/view/12551061/TVep7n9J
+API Doc's: https://documenter.getpostman.com/view/13226545/TW6zG7AF
 
 Created by Lambda Schools WEB_FT_26 Track Team:
 
