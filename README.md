@@ -1,4 +1,4 @@
-# This is a Lambda Build Week Project - Co-Make App
+# This is a Lambda Build Week Project: Co-Make App
 
 #### Deployed App: https://co-make-gov.vercel.app/
 
