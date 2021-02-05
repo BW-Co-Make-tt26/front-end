@@ -10,8 +10,7 @@ API Doc's: https://documenter.getpostman.com/view/13226545/TW6zG7AF
 
 Created by Lambda Schools WEB_FT_26 Track Team:
 
-Will Wearing
-Daniel Vargas
-Hung Thong
 Michael Maton
+Hussin Ali
 Dustin Brinkman
+Leon Nasswetter
