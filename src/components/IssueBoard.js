@@ -17,7 +17,7 @@ export default function IssueBoard(props) {
     }, [])
 
     
-    issues.sort((a,b) => {return b.upvotes - a.upvotes})        // sort issues by upvotes
+    //issues.sort((a,b) => {return b.upvotes - a.upvotes})        // sort issues by upvotes
     
 
     return (
@@ -33,7 +33,7 @@ export default function IssueBoard(props) {
             </Header>
             <CardContainer className='issues-container'>
                 {issues.map((item, index) => {
-                    return <IssueCard key={index} issue={item} />
+                    return <IssueCard key={index} issues={item} />
                 })}
             </CardContainer>
         </>

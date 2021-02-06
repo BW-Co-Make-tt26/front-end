@@ -5,23 +5,25 @@ import styled from "styled-components"
 
 export default function IssueCard(props) {
 
-    const {issue} = props
+    const {issues} = props
+
+    
 
     return (
         <Card className='issue-card'>
             <Title className='issue-title'>
-                <h1>{issue.issue}</h1>
-                <UpVote issue={issue} />
+                <h1>{issues.issue}</h1>
+                <UpVote issue={issues} />
             </Title>
             <CardBody className='card-body'>
                 <Description className='issue-description'>
-                    <p>{issue.description}</p>
-                    <span>{issue.city}, {issue.state}</span><br/>
-                    <span>{issue.zipcode}</span>
+                    <p>{issues.description}</p>
+                    <span>{issues.city}, {issues.state}</span><br/>
+                    <span>{issues.zipcode}</span>
                 </Description>
                 
-                {issue.image ? <IssueImg className='issue-img-ctn'>
-                    <Img src={issue.image} alt='issue-img' />
+                {issues.image ? <IssueImg className='issue-img-ctn'>
+                    <Img src={issues.image} alt='issue-img' />
                 </IssueImg> : null}
            
             </CardBody>

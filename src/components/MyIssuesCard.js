@@ -11,8 +11,8 @@ export default function MyIssuesCard(props) {
         axiosWithAuth()
         .delete(`/api/issues/${issue.id}`)
         .then( res => {
-            setMyIssues(myIssues.filter(issue => {
-                return issue.id !== res.data
+            setMyIssues(myIssues.filter(item => {
+                return item.id !== res.data
             }))
             window.location.reload()
             console.log(res.data)
