@@ -1,18 +1,18 @@
 import React from 'react'
-import './IssueBoard.css'
+// import './IssueBoard.css'
 import UpVote from './UpVote'
 import styled from "styled-components"
 
 
 export default function IssueCard(props) {
 
-    const {issue, disabled, setDisabled} = props
+    const {issue} = props
 
     return (
         <Card className='issue-card'>
             <Title className='issue-title'>
                 <h1>{issue.issue}</h1>
-                <UpVote issue={issue} disabled={disabled} setDisabled={setDisabled}/>
+                <UpVote issue={issue} />
             </Title>
             <CardBody className='card-body'>
                 <Description className='issue-description'>
