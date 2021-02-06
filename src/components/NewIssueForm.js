@@ -117,12 +117,18 @@ const uploadImage = async e => {
     history.push('/issue-board')
   }
 
+  const submit = (e) => {
+    e.preventDefault();
+    addIssue()
+    history.push('/issue-board')
+  }
+
   return (
       <Container>
         <div className="headerContainer">
           <h3>Create a New Issue</h3>
         </div>
-        <form className="formContainer" onSubmit={addIssue}>
+        <form className="formContainer" onSubmit={submit}>
           <div className="inputContainer">
             <label>
               
@@ -193,7 +199,7 @@ const uploadImage = async e => {
               />
             </label>
           </div>
-          <button className="submitBtn" >
+          <button type='submit'className="submitBtn" >
             Submit Issue
           </button>
           <div className="errorContainer">
