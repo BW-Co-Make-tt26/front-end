@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory, useParams } from "react-router-dom";
 import * as yup from "yup";
-import schema from "../validation/IssueForm";
+import schema from "../validation/issueformvalidation";
 import {axiosWithAuth} from '../utils/axiosWithAuth';
 import styled from "styled-components";
 
@@ -144,11 +144,11 @@ const submit = (e) => {
 }
   return (
       <Container>
-        <div className="headerContainer">
-          <h3>Issue Form</h3>
+        <div className="editheaderContainer">
+          <h3>Edit Issue Form</h3>
         </div>
-        <form className="formContainer" onSubmit={submit}>
-          <div className="inputContainer">
+        <form className="editformContainer" onSubmit={submit}>
+          <div className="editinputContainer">
             <label>
               
               <input
@@ -216,7 +216,7 @@ const submit = (e) => {
               />
             </label>
           </div>
-          <button className="submitBtn" disabled={disabled}>
+          <button className="editsubmitBtn" >
             Submit Issue
           </button>
           <div className="errorContainer">

@@ -1,7 +1,7 @@
 import React, { useEffect, useState } from "react";
 import { useHistory } from "react-router-dom";
 import * as yup from "yup";
-import schema from "../validation/IssueForm";
+import schema from "../validation/issueformvalidation";
 import { axiosWithAuth } from '../utils/axiosWithAuth';
 import styled from "styled-components";
 
@@ -27,7 +27,7 @@ const initialDisabled = true;
 export default function NewIssueForm(props) {
   const [formValues, setFormValues] = useState(initialFormValues);
   const [formErrors, setFormErrors] = useState(initialFormErrors);
-  const [disabled, setDisabled] = useState(initialDisabled);
+  const [ , setDisabled] = useState(initialDisabled);
 
   const [ , setLoading] = useState(false)
   
@@ -84,10 +84,8 @@ const uploadImage = async e => {
 
   const file = await res.json()
   formValues.image = file.secure_url
-  console.log(formValues)
+  console.log(file)
 }
-
-//
 
   const addIssue = () => {
     const user = JSON.parse(localStorage.getItem('user'))
@@ -110,13 +108,13 @@ const uploadImage = async e => {
     .catch(err => {
       console.log(err)
     })
-    history.push('/issue-board')
-    window.location.reload()
+    //history.push('/issue-board')
+    //window.location.reload()
     console.log(newIssue)
   }
 
   const goBack = () => {
-    history.goBack()
+    history.push('/issue-board')
   }
 
   return (
@@ -195,7 +193,7 @@ const uploadImage = async e => {
               />
             </label>
           </div>
-          <button className="submitBtn" disabled={disabled}>
+          <button className="submitBtn" >
             Submit Issue
           </button>
           <div className="errorContainer">
