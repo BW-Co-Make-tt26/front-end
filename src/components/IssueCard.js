@@ -1,5 +1,4 @@
 import React from 'react'
-// import './IssueBoard.css'
 import UpVote from './UpVote'
 import styled from "styled-components"
 

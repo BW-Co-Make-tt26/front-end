@@ -2,7 +2,6 @@ import React, { useState, useEffect } from 'react'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
 import IssueCard from './IssueCard'
 import { Link } from 'react-router-dom'
-// import './IssueBoard.css'
 import styled from "styled-components"
 
 export default function IssueBoard(props) {

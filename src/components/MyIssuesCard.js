@@ -1,6 +1,5 @@
 import React from 'react'
 import {axiosWithAuth} from '../utils/axiosWithAuth'
-// import './IssueBoard.css'
 import { Link } from 'react-router-dom'
 import styled from "styled-components";
 
