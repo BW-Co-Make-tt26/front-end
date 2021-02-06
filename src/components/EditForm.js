@@ -35,7 +35,7 @@ const initialDisabled = true;
 export default function EditForm(props) {
     const [formValues, setFormValues] = useState(initialFormValues);
     const [formErrors, setFormErrors] = useState(initialFormErrors);
-    const [disabled, setDisabled] = useState(initialDisabled);
+    const [, setDisabled] = useState(initialDisabled);
     const [ , setLoading] = useState(false)
     const history = useHistory();
     const {id} = useParams();
