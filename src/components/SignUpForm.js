@@ -75,7 +75,6 @@ export default function SignUpForm() {
   const onSubmit = (evt) => {
     evt.preventDefault();
     submitForm();
-    console.log(formValues)
   };
 
   const update = (evt) => {

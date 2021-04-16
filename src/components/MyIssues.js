@@ -22,7 +22,6 @@ export default function MyIssues(props) {
             setMyIssues(res.data)
         })
     }, [])
-    console.log(myIssues)
 
 
     const myIssuesArr = myIssues.filter(item => item.user_id === curUserId ? item : null )  // myIssues Array

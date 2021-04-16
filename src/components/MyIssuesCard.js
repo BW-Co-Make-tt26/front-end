@@ -14,8 +14,6 @@ export default function MyIssuesCard(props) {
             setMyIssues(myIssues.filter(item => {
                 return item.id !== res.data
             }))
-            window.location.reload()
-            console.log(res.data)
         })
         .catch(err => {
             console.log(err.data)
