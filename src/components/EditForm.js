@@ -127,7 +127,6 @@ useEffect(() => {
     .then(res => {
      
         history.push('/issue-board')
-        // window.location.reload()
       })
     .catch(err => {
       console.log(err)
@@ -136,7 +135,7 @@ useEffect(() => {
   const goBack = () => {
     history.goBack()
   }
-const submit = (e) => {   //this is very important for forms do not forget preventDefault()
+const submit = (e) => { 
   e.preventDefault();
   addIssue()
 }
