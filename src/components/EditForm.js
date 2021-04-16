@@ -138,7 +138,7 @@ useEffect(() => {
   const goBack = () => {
     history.goBack()
   }
-const submit = (e) => {
+const submit = (e) => {   //this is very important for forms do not forget preventDefault()
   e.preventDefault();
   addIssue()
 }
