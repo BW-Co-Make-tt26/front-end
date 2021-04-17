@@ -84,7 +84,6 @@ const uploadImage = async e => {
 
   const file = await res.json()
   formValues.image = file.secure_url
-  console.log(file)
 }
 
   const addIssue = () => {
