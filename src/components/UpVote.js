@@ -27,10 +27,8 @@ export default function UpVote({issue}) {
                  <img id='upvote-svg' src={upvoteImg} alt='upvote' />
                  </button>
             </UpvoteCtn>
-            
-       
     )
-}
+};
 
 const UpvoteCtn = styled.div `
     display:flex;
