@@ -90,7 +90,6 @@ export default function SignUpForm() {
       <form className="formContainer">
         <div className="inputContainer">
           <label>
-            
             <input
               name="first_name"
               type="text"
@@ -101,7 +100,6 @@ export default function SignUpForm() {
           </label>
           <br />
           <label>
-            
             <input
               name="last_name"
               type="text"
@@ -112,7 +110,6 @@ export default function SignUpForm() {
           </label>
           <br />
           <label>
-            
             <input
               name="username"
               type="text"
@@ -123,7 +120,6 @@ export default function SignUpForm() {
           </label>
           <br />
           <label>
-            
             <input
               name="email"
               type="email"
@@ -134,7 +130,6 @@ export default function SignUpForm() {
           </label>
           <br />
           <label>
-            
             <input
               name="password"
               type="password"
