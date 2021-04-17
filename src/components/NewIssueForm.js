@@ -131,7 +131,6 @@ const uploadImage = async e => {
         <form className="formContainer" onSubmit={submit}>
           <div className="inputContainer">
             <label>
-              
               <input
                 name="issue"
                 type="text"
@@ -142,7 +141,6 @@ const uploadImage = async e => {
             </label>
             <br />
             <label>
-              
               <textarea
                 name="description"
                 value={formValues.description}
@@ -165,7 +163,6 @@ const uploadImage = async e => {
             </label>
             <br />
             <label>
-
               <input
                 name="city"
                 type="text"
@@ -175,8 +172,7 @@ const uploadImage = async e => {
               />
             </label>
             <br />
-            <label>
-              
+            <label>  
               <input
                 name="state"
                 type="text"
@@ -188,7 +184,6 @@ const uploadImage = async e => {
             </label>
             <br />
             <label>
-              
               <input
                 name="zipcode"
                 type="text"
